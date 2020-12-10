@@ -21,16 +21,16 @@ void vBlink1(void *pvParam){
 
   pdMS_TO_TICKS(001);
   if(xSemaphoreTake(xMutex1, 1) == pdTRUE){
-      trace_puts("Task1 - Mutex1 - Entrando na secao critica, tick: %d", xTaskGetTickCount());
+      trace_printf("Task1 - Mutex1 - Entrando na secao critica, tick: %d\n", xTaskGetTickCount());
       pdMS_TO_TICKS(001);
-   	  trace_puts("Task1 - Mutex1 - Saindo da secao critica, tick: %d", xTaskGetTickCount());
+   	  trace_printf("Task1 - Mutex1 - Saindo da secao critica, tick: %d\n", xTaskGetTickCount());
   	  xSemaphoreGive(xMutex1);
   } // if
 
   if(xSemaphoreTake(xMutex2, 1) == pdTRUE){
-      trace_puts("Task1 - Mutex2 - Entrando na secao critica, tick: %d", xTaskGetTickCount());
+      trace_printf("Task1 - Mutex2 - Entrando na secao critica, tick: %d\n", xTaskGetTickCount());
       pdMS_TO_TICKS(001);
-      trace_puts("Task1 - Mutex2 - Saindo da secao critica, tick: %d", xTaskGetTickCount());
+      trace_printf("Task1 - Mutex2 - Saindo da secao critica, tick: %d\n", xTaskGetTickCount());
       xSemaphoreGive(xMutex2);
   } // if
   pdMS_TO_TICKS(001);
@@ -39,25 +39,25 @@ void vBlink1(void *pvParam){
 void vBlink2(void *pvParam){
 	pdMS_TO_TICKS(001);
   if(xSemaphoreTake(xMutex2, 1) == pdTRUE){
-        trace_puts("Task2 - Mutex2 - Entrando na secao critica, tick: %d", xTaskGetTickCount());
+        trace_printf("Task2 - Mutex2 - Entrando na secao critica, tick: %d\n", xTaskGetTickCount());
         pdMS_TO_TICKS(002);
-        trace_puts("Task2 - Mutex2 - Saindo da secao critica, tick: %d", xTaskGetTickCount());
+        trace_printf("Task2 - Mutex2 - Saindo da secao critica, tick: %d\n", xTaskGetTickCount());
         xSemaphoreGive(xMutex2);
     } // if
   pdMS_TO_TICKS(001);
 } // vBlink2
 
 void vBlink3(void *pvParam){
-  trace_puts("Task3, tick: %d", xTaskGetTickCount());
+  trace_printf("Task3, tick: %d\n", xTaskGetTickCount());
   pdMS_TO_TICKS(001);
 } // vBlink3
 
 void vBlink4(void *pvParam){
 	pdMS_TO_TICKS(001);
     if(xSemaphoreTake(xMutex1, 1) == pdTRUE){
-	    trace_puts("Task1 - Mutex1 - Entrando na secao critica, tick: %d",xTaskGetTickCount());
+	    trace_printf("Task1 - Mutex1 - Entrando na secao critica, tick: %d\n",xTaskGetTickCount());
 	    pdMS_TO_TICKS(004);
-	    trace_puts("Task1 - Mutex1 - Saindo da secao critica, tick: %d", xTaskGetTickCount());
+	    trace_printf("Task1 - Mutex1 - Saindo da secao critica, tick: %d\n", xTaskGetTickCount());
 	  	xSemaphoreGive(xMutex1);
 	  } // if
     pdMS_TO_TICKS(001);
